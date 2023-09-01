@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --theme-green: rgba(89, 159, 78, 1);
+  --theme-white: #ffffff;
+}
+
+/* * {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+} */
+
+.header-container {
+  font-family: 'Roboto', sans-serif;
+  position: sticky;
+}
+.header-container .header-level {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--theme-green);
+  color: var(--theme-white);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.upper-sub-container,
+.lower-sub-container {
+  height: 5rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+}
