@@ -18,7 +18,7 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
       <p>Quality Products. Affordable Prices.</p>
     </div>
     <div class="header-sub-container">
-      <div class="upper-sub-container border-b-[2px]">
+      <div class="upper-sub-container border-b-[1px]">
         <v-row>
           <v-col cols="2">V-Mart</v-col>
           <v-col cols="3">
@@ -63,13 +63,13 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
         <v-row>
           <v-col
             cols="2"
-            class="centered-items border-r-[2px] pointer"
+            class="centered-items border-r-[2px] border-b-[1px] pointer"
             @click="toggleCategoryDrawer"
           >
             <v-icon icon="mdi-shape-outline" />
             <span class="ml-2">All Categories</span>
           </v-col>
-          <v-col cols="8" class="nav-container">
+          <v-col cols="8" class="nav-container border-b-[1px]">
             <router-link to="/">Home</router-link>
             <router-link to="/about">New Products</router-link>
             <router-link to="/">Best Sellers</router-link>

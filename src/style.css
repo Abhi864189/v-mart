@@ -70,8 +70,11 @@
 }
 
 .item-container {
-  padding: 0rem 1rem;
+  padding: 0rem 1.5rem;
   width: 100%;
+}
+.item-container .upper-banner-container {
+  margin: 1.5rem 0;
 }
 .item-container .category-banner-container {
   padding: 3px;
@@ -79,29 +82,31 @@
 .item-container .category-banner-container .banner-card img {
   border-radius: 8px;
   cursor: pointer;
+  width: 100%;
 }
 
-/* @media (min-width: 1200px) {
+@media (max-width: 1200px) {
   .item-container,
-  .header-container {
+  .header-container .header-level {
     max-width: 1152px;
   }
 }
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .item-container,
-  .header-container {
+  .header-container .header-level {
     max-width: 960px;
   }
 }
-@media (min-width: 768px) {
+
+@media (max-width: 768px) {
   .item-container,
-  .header-container {
+  .header-container .header-level {
     max-width: 720px;
   }
 }
-@media (min-width: 576px) {
+@media only screen and (max-width: 576px) {
   .item-container,
-  .header-container {
+  .header-container .header-level {
     max-width: 540px;
   }
-} */
+}
