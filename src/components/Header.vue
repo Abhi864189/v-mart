@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+
+import categoryDrawerComponent from './CategoryDrawer.vue'
+
 const pinCodes = ref([
   { name: '74125,West-Bengal,Kolkata', value: '74125,West-Bengal,Kolkata' },
   { name: '74126,West-Bengal,Kolkata', value: '74126,West-Bengal,Kolkata' },
@@ -84,12 +87,7 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
     </div>
   </header>
   <v-navigation-drawer v-model="categoryDrawer" width temporary>
-    <div class="w-[450px] p-[5px]">
-      <div class="flex justify-end">
-        <v-icon icon="mdi-window-close" class="pointer" @click="toggleCategoryDrawer" />
-      </div>
-      <div>All Categories</div>
-    </div>
+    <categoryDrawerComponent @toggle="toggleCategoryDrawer" />
   </v-navigation-drawer>
   <v-navigation-drawer v-model="cartDrawer" width temporary location="right">
     <div class="w-[450px] p-[5px]">
