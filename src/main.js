@@ -4,6 +4,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import './style.css'
+import 'vue3-carousel/dist/carousel.css'
 
 loadFonts()
 

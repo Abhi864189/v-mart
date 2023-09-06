@@ -104,13 +104,16 @@
   padding: 0.2rem;
   flex-direction: column;
 }
-.home-category-container .category-list img{
+.home-category-container .category-list img {
   height: 80%;
   object-fit: contain;
 }
 
-.home-category-container .category-list img:hover{
+.home-category-container .category-list img:hover {
   height: 90%;
+}
+.home-product-slider-container {
+  margin: 1rem;
 }
 
 .category-drawer-container .category-list {
