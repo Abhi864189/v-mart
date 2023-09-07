@@ -1,7 +1,9 @@
 <script setup>
-import { onMounted, onUpdated, reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
+import { useRouter } from 'vue-router'
 import { getCategories } from '../service'
 const apiData = reactive({ data: null, error: null })
+const router = useRouter()
 const fetchCategories = async () => {
   getCategories('categories/web/list')
     .then((res) => {
@@ -14,7 +16,6 @@ const fetchCategories = async () => {
 onMounted(() => {
   fetchCategories()
 })
-
 </script>
 
 <template>
@@ -27,7 +28,12 @@ onMounted(() => {
     </div>
     <div>
       <ul>
-        <li v-for="item in apiData.data" class="category-list" :key="item._id">
+        <li
+          v-for="item in apiData.data"
+          class="category-list"
+          :key="item._id"
+          @click="router.push({ path: `/product-list/${item._id}` })"
+        >
           {{ item.categoryName }}
         </li>
       </ul>

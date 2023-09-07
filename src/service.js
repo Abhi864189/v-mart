@@ -10,3 +10,8 @@ export const getBestSellers = () => {
 export const getTrendingProducts = () => {
   return axios.get(`${base_Url}products/trending`)
 }
+export const getItemsByCategoryData = (id, pageIndex, pageSize) => {
+  return axios.get(
+    `${base_Url}products/web/by-category/${id}?pageIndex=${pageIndex}&pageSize=${pageSize}`
+  )
+}

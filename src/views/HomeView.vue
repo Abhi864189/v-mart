@@ -1,8 +1,7 @@
 <script setup>
 import { onMounted, reactive } from 'vue'
 import { getCategories, getBestSellers, getTrendingProducts } from '../service'
-
-import Header from '../components/Header.vue'
+import { useRouter } from 'vue-router'
 import ProductsSliderVue from '../components/ProductsSlider.vue'
 import banner1 from '../utils/pictures/banners/banner 1.jpeg'
 import banner2 from '../utils/pictures/banners/banner 2.jpeg'
@@ -14,6 +13,7 @@ import banner6 from '../utils/pictures/banners/banner6.jpeg'
 const apiData = reactive({ data: null, error: null, catLoading: false })
 const bestSellerData = reactive({ data: [], error: null, loading: false })
 const trendingData = reactive({ data: [], error: null, loading: false })
+const router = useRouter()
 const fetchCategories = async () => {
   apiData.catLoading = true
   getCategories('categories/web/list')
@@ -56,9 +56,11 @@ onMounted(() => {
   fetchTrendingItems()
 })
 
+const gotoProductList = (id) => {
+  router.push({ path: `product-list/${id}` })
+}
 </script>
 <template>
-  <Header></Header>
   <div class="item-container">
     <div class="upper-banner-container">
       <v-carousel hide-delimiters height="auto">
@@ -85,6 +87,7 @@ onMounted(() => {
         v-for="item in apiData.data"
         :key="item._id"
         class="w-[6rem] text-center text-[0.8rem] font-medium"
+        @click="gotoProductList(item._id)"
       >
         <div class="category-list">
           <img :src="item.coverImage" :alt="item.categoryName" />

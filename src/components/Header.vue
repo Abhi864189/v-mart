@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-
 import categoryDrawerComponent from './CategoryDrawer.vue'
+import { useRouter } from 'vue-router'
 
 const pinCodes = ref([
   { name: '74125,West-Bengal,Kolkata', value: '74125,West-Bengal,Kolkata' },
@@ -9,7 +9,7 @@ const pinCodes = ref([
   { name: '74127,West-Bengal,Kolkata', value: '74127,West-Bengal,Kolkata' },
   { name: '74128,West-Bengal,Kolkata', value: '74128,West-Bengal,Kolkata' }
 ])
-
+const router = useRouter()
 const categoryDrawer = ref(false)
 const cartDrawer = ref(false)
 const toggleCategoryDrawer = () => (categoryDrawer.value = !categoryDrawer.value)
@@ -23,7 +23,7 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
     <div class="header-sub-container">
       <div class="upper-sub-container border-b-[1px]">
         <v-row>
-          <v-col cols="2">V-Mart</v-col>
+          <v-col class="pointer" cols="2" @click="router.push({ path: '/' })">V-Mart</v-col>
           <v-col cols="3">
             <v-select
               :items="pinCodes"

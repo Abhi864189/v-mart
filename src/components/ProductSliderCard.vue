@@ -1,5 +1,7 @@
 <script setup>
+import { useRouter } from 'vue-router'
 const props = defineProps(['item'])
+const router = useRouter()
 </script>
 <template>
   <div class="card-container">
@@ -7,7 +9,10 @@ const props = defineProps(['item'])
       <div class="fav-container">
         <v-icon class="fav-icon" color="rgb(88, 157, 77)" icon="mdi-heart-outline" size="35" />
       </div>
-      <div class="image-container">
+      <div
+        class="image-container"
+        @click="router.push({ path: `/product-details/${props.item._id}` })"
+      >
         <img :src="props.item.image" :alt="props.item.name" />
       </div>
       <div class="product_text_container">
@@ -16,9 +21,9 @@ const props = defineProps(['item'])
       </div>
       <div class="button_container">
         <div class="quantity_container">
-          <button>+</button>
-          <input type="text" disabled value="1" />
           <button>-</button>
+          <input type="text" disabled value="1" />
+          <button>+</button>
         </div>
         <button class="add-button">ADD</button>
       </div>
