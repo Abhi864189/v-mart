@@ -70,11 +70,11 @@
 }
 
 .item-container {
-  padding: 1.5rem ;
+  padding: 1.5rem;
   width: 100%;
 }
 .item-container .upper-banner-container {
-  margin:  0;
+  margin: 0;
 }
 .item-container .category-banner-container {
   padding: 3px;
@@ -114,6 +114,15 @@
 }
 .home-product-slider-container {
   margin: 1rem;
+}
+
+.item-container .home_secondary_banner_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.item-container .home_secondary_banner_container img {
+  width: 98%;
 }
 
 .category-drawer-container .category-list {

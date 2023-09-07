@@ -17,12 +17,17 @@ const router = useRouter()
       </div>
       <div class="product_text_container">
         <p class="title">{{ props.item.name.slice(0, 15) }}</p>
-        <p><span class="price">₹ 99</span> <span class="discounted_price">₹ 115 </span></p>
+        <p>
+          <span class="price">₹ {{ props.item.discountedPrice }}</span>
+          <span v-if="props.item.salePrice > props.item.discountedPrice" class="discounted_price"
+            >₹ {{ props.item.salePrice }}
+          </span>
+        </p>
       </div>
       <div class="button_container">
         <div class="quantity_container">
           <button>-</button>
-          <input type="text" disabled value="1" />
+          <input type="text" disabled :value="props.item.quantity" />
           <button>+</button>
         </div>
         <button class="add-button">ADD</button>
@@ -38,6 +43,7 @@ const router = useRouter()
   height: 23rem;
   border-radius: 0.5rem;
   border: solid 1px #c5c3c3;
+  margin: 0.5rem 0;
 }
 .sub-container {
   padding: 1rem;

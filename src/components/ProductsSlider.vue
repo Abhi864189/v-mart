@@ -46,11 +46,11 @@ const breakpoints = {
   margin: 0.5rem 0;
 }
 .home-product-slider-container .container_title p {
-  font-size: 2rem;
+  font-size: 1.7vw;
   font-weight: 600;
 }
 .home-product-slider-container .container_title a {
-  font-size: 1.4rem;
+  font-size: 1vw;
   font-weight: 600;
   color: rgba(89, 159, 78, 1);
 }

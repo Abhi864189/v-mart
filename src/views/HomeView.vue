@@ -9,6 +9,7 @@ import banner3 from '../utils/pictures/banners/banner3.jpeg'
 import banner4 from '../utils/pictures/banners/banner4.jpeg'
 import banner5 from '../utils/pictures/banners/banner5.jpeg'
 import banner6 from '../utils/pictures/banners/banner6.jpeg'
+import banner7 from '../utils/pictures/banners/banner 7.jpeg'
 
 const apiData = reactive({ data: null, error: null, catLoading: false })
 const bestSellerData = reactive({ data: [], error: null, loading: false })
@@ -100,6 +101,9 @@ const gotoProductList = (id) => {
       title="Best Seller Items"
       :data="bestSellerData.data"
     />
+    <div class="home_secondary_banner_container">
+      <img :src="banner7" alt="secondary_banner" />
+    </div>
     <ProductsSliderVue
       v-if="trendingData.data.length > 0"
       title="Trending Items"
