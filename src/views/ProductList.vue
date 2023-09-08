@@ -1,5 +1,5 @@
 <script setup>
-import { watchEffect, reactive } from 'vue'
+import { watchEffect, reactive, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { getItemsByCategoryData } from '../service'
 import ProductSliderCardVue from '../components/ProductSliderCard.vue'
@@ -8,13 +8,13 @@ const sortingOptions = [
   { name: 'Price Low to High', value: 0 },
   { name: 'Price High to Low', value: 1 }
 ]
+const selectedSort = ref(null)
 const itemData = reactive({ data: [], error: '', loading: false })
 
 const fetchItems = () => {
   itemData.loading = true
   getItemsByCategoryData(route.params.id, 1, 16)
     .then((res) => {
-      console.log(res.data.data, 'from product list page')
       itemData.data = res.data.data
       itemData.loading = false
     })
@@ -23,7 +23,21 @@ const fetchItems = () => {
       itemData.error = err
     })
 }
+const sortingItems = (sortValue) => {
+  if (itemData.data.length > 0) {
+    if (sortValue === 0) {
+      itemData.data = itemData.data.sort((a, b) => {
+        return a.discountedPrice - b.discountedPrice
+      })
+    } else if (sortValue === 1) {
+      itemData.data = itemData.data.sort((a, b) => {
+        return b.discountedPrice - a.discountedPrice
+      })
+    }
+  }
+}
 watchEffect(fetchItems)
+watch(() => selectedSort.value, sortingItems)
 </script>
 <template>
   <div class="item-container">
@@ -37,6 +51,7 @@ watchEffect(fetchItems)
           variant="outlined"
           base-color="rgb(88, 157, 77)"
           label="Sorting Products"
+          v-model="selectedSort"
         >
         </v-select>
       </div>

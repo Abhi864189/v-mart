@@ -1,10 +1,6 @@
 <script setup>
-import { watchEffect } from 'vue'
 import { useCartStore } from '../stores/cart'
 const cartStore = useCartStore()
-watchEffect(() => {
-  console.log(cartStore.cartData, 'cart Data')
-})
 </script>
 <template>
   <div class="w-[450px] p-[5px]">

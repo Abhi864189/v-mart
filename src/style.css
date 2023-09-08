@@ -130,14 +130,15 @@
   margin: 0 0.5rem;
   padding: 1rem;
   cursor: pointer;
-  color: #afaeae;
+  color: var(--theme-green);
   font-size: 1rem;
   letter-spacing: 0.1rem;
 }
 .category-drawer-container .category-list:hover {
-  background-color: #dbd3d3;
-  color: var(--theme-green);
+  background-color: var(--theme-green);
+  color: var(--theme-white);
   font-size: 1.2rem;
+  font-weight: 600;
   letter-spacing: 0.2rem;
   transition-delay: 500ms color background;
 }
