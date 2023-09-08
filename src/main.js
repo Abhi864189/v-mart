@@ -5,7 +5,8 @@ import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import './style.css'
 import 'vue3-carousel/dist/carousel.css'
+import { createPinia } from 'pinia'
 
 loadFonts()
 
-createApp(App).use(router).use(vuetify).mount('#app')
+createApp(App).use(createPinia()).use(router).use(vuetify).mount('#app')

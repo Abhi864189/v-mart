@@ -78,6 +78,7 @@
 }
 .item-container .category-banner-container {
   padding: 3px;
+  margin-top: 1rem;
 }
 .item-container .category-banner-container .banner-card img {
   border-radius: 8px;

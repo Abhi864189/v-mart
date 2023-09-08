@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import categoryDrawerComponent from './CategoryDrawer.vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '../stores/cart'
+import MyCartDrawer from './MyCartDrawer.vue'
 
 const pinCodes = ref([
   { name: '74125,West-Bengal,Kolkata', value: '74125,West-Bengal,Kolkata' },
@@ -10,10 +12,9 @@ const pinCodes = ref([
   { name: '74128,West-Bengal,Kolkata', value: '74128,West-Bengal,Kolkata' }
 ])
 const router = useRouter()
+const cartStore = useCartStore()
 const categoryDrawer = ref(false)
-const cartDrawer = ref(false)
 const toggleCategoryDrawer = () => (categoryDrawer.value = !categoryDrawer.value)
-const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
 </script>
 <template>
   <header class="header-container">
@@ -77,9 +78,13 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
             <router-link to="/about">New Products</router-link>
             <router-link to="/">Best Sellers</router-link>
           </v-col>
-          <v-col cols="2" class="centered-items bg-[#599f4e] cart-button" @click="toggleCartDrawer">
+          <v-col
+            cols="2"
+            class="centered-items bg-[#599f4e] cart-button"
+            @click="cartStore.openCart()"
+          >
             <v-icon icon="mdi-cart-outline" color="white" />
-            <span>Cart 0</span>
+            <span>Cart ({{ cartStore.cartData.length }})</span>
             <v-icon icon="mdi-menu-down" color="white" size="20" />
           </v-col>
         </v-row>
@@ -89,12 +94,7 @@ const toggleCartDrawer = () => (cartDrawer.value = !cartDrawer.value)
   <v-navigation-drawer v-model="categoryDrawer" width temporary>
     <categoryDrawerComponent @toggle="toggleCategoryDrawer" />
   </v-navigation-drawer>
-  <v-navigation-drawer v-model="cartDrawer" width temporary location="right">
-    <div class="w-[450px] p-[5px]">
-      <div>
-        <v-icon icon="mdi-window-close" class="pointer" @click="toggleCartDrawer" />
-      </div>
-      <div>My Cart</div>
-    </div>
+  <v-navigation-drawer v-model="cartStore.isOpen" width temporary location="right">
+    <MyCartDrawer />
   </v-navigation-drawer>
 </template>

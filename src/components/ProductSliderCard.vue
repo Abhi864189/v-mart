@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '../stores/cart';
 const props = defineProps(['item'])
 const router = useRouter()
+const count = ref(1)
+const cartStore=useCartStore()
 </script>
 <template>
   <div class="card-container">
@@ -26,11 +30,11 @@ const router = useRouter()
       </div>
       <div class="button_container">
         <div class="quantity_container">
-          <button>-</button>
-          <input type="text" disabled :value="props.item.quantity" />
-          <button>+</button>
+          <button :disabled="count === 1" @click="count--">-</button>
+          <input type="text" disabled :value="count" />
+          <button @click="count++">+</button>
         </div>
-        <button class="add-button">ADD</button>
+        <button class="add-button" @click="cartStore.addToCart({...props.item,quantity:count})">ADD</button>
       </div>
     </div>
   </div>
