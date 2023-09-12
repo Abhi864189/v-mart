@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CommonPage from '../views/CommonPage.vue'
-import ProductList from '../views/ProductList.vue'
-import ProductDetails from '../views/ProductDetails.vue'
+
+const ProductList = () => import('../views/ProductList.vue')
+const ProductDetails = () => import('../views/ProductDetails.vue')
+const LoginPage = () => import('../views/LoginPage.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,7 +26,8 @@ const router = createRouter({
           component: ProductDetails
         }
       ]
-    }
+    },
+    { path: '/login', component: LoginPage }
   ]
 })
 

@@ -57,7 +57,12 @@ const toggleCategoryDrawer = () => (categoryDrawer.value = !categoryDrawer.value
                 <v-icon color="rgb(88, 157, 77)" icon="mdi-heart-outline" size="35" />
               </v-col>
               <v-col cols="4" class="user-sub-container">
-                <v-icon color="rgb(88, 157, 77)" icon="mdi-account-circle-outline" size="45" />
+                <v-icon
+                  color="rgb(88, 157, 77)"
+                  icon="mdi-account-circle-outline"
+                  size="45"
+                  @click="router.push({ path: '/login' })"
+                />
               </v-col>
             </v-row>
           </v-col>
