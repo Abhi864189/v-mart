@@ -79,7 +79,7 @@ const toggleCategoryDrawer = () => (categoryDrawer.value = !categoryDrawer.value
             <span class="ml-2">All Categories</span>
           </v-col>
           <v-col cols="8" class="nav-container border-b-[1px]">
-            <router-link to="/">Home</router-link>
+            <router-link to="/">{{ $t('nav.home') }}</router-link>
             <router-link to="/about">New Products</router-link>
             <router-link to="/">Best Sellers</router-link>
           </v-col>
